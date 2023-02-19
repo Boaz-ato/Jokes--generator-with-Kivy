@@ -1,0 +1,134 @@
+#: import Window kivy.core.window.Window
+#:import icon kivy.garden.iconfonts.icon
+<Search_page>
+    ball: emo
+    BoxLayout:
+        id:search_box1
+        orientation:'vertical'
+        canvas.before:
+            Color:
+                rgba:(0.8,0.4,0,1)
+            
+            Rectangle:
+                size:self.size
+                pos:self.pos
+        
+        
+                    
+        
+        RelativeLayout:
+           
+         
+            ImageButton:
+                id:custom_image1
+                
+                source:'images/logout_hover.png' if self.hovered else 'images/logout_nothover.png'
+                on_press:Window.close()
+                size_hint:None,None
+                height:100
+                width:100
+                pos_hint:{'center_x':0.8,'center_y':0.9}
+           
+            emoji:
+                id: emo
+                pos:self.pos
+                size_hint:None,None
+                height:100
+                width:100
+                
+            Image:
+                source:'images/searching.png'
+                size_hint:None,None
+                size:200,100
+                pos_hint:{'center_x':0.5,'center_y':0.75}
+            Spinner:
+                id:degree
+                text:"Physics & Astronomy"
+                values:('Physics & Astronomy','Sociology','Sports Science','Theology')                                                     
+                id:degree
+                size_hint:None,None
+                size:250,50
+                pos_hint:{'center_x':0.5,'center_y':0.6}
+                background_normal:""
+                background_color:(.6,.4,0,1)
+                
+            
+            ImageButton:
+                id:laughing
+                source:'images/organge.png' if self.hovered else 'images/yellow.png'
+                size_hint:None,None
+                size:250,250
+                pos_hint:{'center_x':0.5,'center_y':0.2}
+                on_press:root.joke(self)
+                
+                
+                
+        
+                   
+            
+           
+ 
+<Laughing_image>
+    BoxLayout:
+        id:boxer
+        orientation:'vertical'
+        canvas.before:
+            
+            Color:
+                rgba:(1,0.6,0,1)
+            
+            Rectangle:
+                id:rect
+                size:self.size
+                pos:self.pos
+                source:""
+        RelativeLayout:
+            id:relative
+            Button:
+                id:make_me_laugh
+                text:'%s'%(icon('zmdi-arrow-back',32))
+                markup:True
+                size_hint:.1,.1
+                height:50
+                background_normal:""
+                background_color:(0,0,0,1)
+                pos_hint:{'center_x':0.1,'center_y':0.9}
+                on_press:root.back()
+            Image:
+                id:point
+                source:""
+                pos_hint:{'center_x':0.5,'center_y':0.5}
+                size_hint:None,None
+                height:Window.height-20
+                width:Window.width-10
+            ImageButton:
+                id:next_laughing
+                source:'images/organge.png' if self.hovered else 'images/yellow.png'
+                size_hint:None,None
+                size:100,100
+                pos_hint:{'center_x':0.8,'center_y':0.1}
+                on_press:root.joke3()
+                
+           
+<emoji>
+    
+    size_hint:.2,.3
+    size:50,50
+    
+   
+   
+    canvas:
+        Rectangle:
+            source:'images/ghg.png'
+            pos:self.pos
+            size:self.size               
+                    
+
+
+
+
+<RootWidget>
+    Search_page:
+        name:"search"
+    Laughing_image:
+        name:"jokes"
